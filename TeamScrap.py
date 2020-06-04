@@ -1,3 +1,4 @@
+from colorama import Fore, Style
 import requests
 import json
 
@@ -13,7 +14,11 @@ class TeamScrap:
 
 			req = requests.get(class_list_endpoint, headers=self.header)
 
-			return json.loads(req.text)
+			if int(req.status_code) == 401:
+				print(f'{Fore.RED}401 Unauthorized - Token inválido{Style.RESET_ALL}')
+				exit()
+			else:
+				return json.loads(req.text)
 		else:
 			class_list_endpoint = 'https://assignments.onenote.com/api/v1.0/edu/me/classes/{}'
 			classesInfo = []
@@ -21,9 +26,12 @@ class TeamScrap:
 			for classId in ids:
 				req = requests.get(class_list_endpoint.format(classId), headers=self.header)
 
-				classeInfo = json.loads(req.text)
-
-				classesInfo.append(classeInfo)
+				if int(req.status_code) == 401:
+					print(f'{Fore.RED}401 Unauthorized - Token inválido{Style.RESET_ALL}')
+					exit()
+				else:
+					classeInfo = json.loads(req.text)
+					classesInfo.append(classeInfo)
 
 			return classesInfo
 
