@@ -1,5 +1,6 @@
 from TeamScrap import TeamScrap
 from colorama import Fore, Style
+from datetime import datetime
 from crypt import Crypt
 import ascii_art
 
@@ -18,6 +19,13 @@ def clear_token():
 	encrypted_token_file = open('token.txt', 'wb')
 	encrypted_token_file.write(''.encode())
 	encrypted_token_file.close()
+
+def parse_date_time(date_time):
+	all_date_parsed = date_time.split('T')
+	date_parsed = all_date_parsed[0].split('-')
+	#hour_parsed = all_date_parsed[1].replace('Z', '')
+
+	return date_parsed
 
 print(ascii_art.return_ascii())
 
@@ -71,7 +79,7 @@ else:
 
 	print(f'{Fore.BLUE}Seu token foi encontrado em cache!{Style.RESET_ALL}\n')
 
-print('Pegando tarefas... (Isso pode demorar alguns minutos)\n')
+print('Pegando assignments... (Isso pode demorar alguns minutos)\n')
 
 ts = TeamScrap(original_token)
 
@@ -85,10 +93,25 @@ except Exception as err:
 
 print('=' * 100)
 for class_assignment in classes_assignments:
+	due_date_time = class_assignment['assignmentInfo']['dueDateTime']
+	date_parsed = parse_date_time(due_date_time)
+
+	date_init = datetime.now()
+	date_final = datetime(year=int(date_parsed[0]), month=int(date_parsed[1]), day=int(date_parsed[2]))
+
+	remaining_date = date_final - date_init
+	remaining_days = str(remaining_date).split(' ')[0]
+
 	print('\n')
 	print(f'{Fore.GREEN}Matéria:{Style.RESET_ALL} {class_assignment["classInfo"][0]["name"]}')
 	print(f"{Fore.GREEN}Descrição:{Style.RESET_ALL} {class_assignment['assignmentInfo']['displayName']}")
-	print(f'{Fore.GREEN}Data de entrega:{Style.RESET_ALL} {class_assignment["assignmentInfo"]["dueDateTime"]}')
+	print(f'{Fore.GREEN}Data de entrega:{Style.RESET_ALL} {date_parsed[2]}/{date_parsed[1]}/{date_parsed[0]}')
+
+	if int(remaining_days) <= 0:
+		print(f'{Fore.RED}Assignment em atraso!{Style.RESET_ALL}')
+	else:
+		print(f'{Fore.GREEN}Dias restantes:{Style.RESET_ALL} {remaining_days}')
+
 	print('\n')
 	print('=' * 100)
 
