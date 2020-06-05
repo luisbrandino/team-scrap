@@ -15,8 +15,8 @@ class TeamScrap:
 			req = requests.get(class_list_endpoint, headers=self.header)
 
 			if int(req.status_code) == 401:
-				print(f'{Fore.RED}401 Unauthorized - Token inválido{Style.RESET_ALL}')
-				exit()
+				raise Exception('401 Unauthorized - Token inválido')
+				return
 			else:
 				return json.loads(req.text)
 		else:
@@ -27,8 +27,8 @@ class TeamScrap:
 				req = requests.get(class_list_endpoint.format(classId), headers=self.header)
 
 				if int(req.status_code) == 401:
-					print(f'{Fore.RED}401 Unauthorized - Token inválido{Style.RESET_ALL}')
-					exit()
+					raise Exception('401 Unauthorized - Token inválido')
+					return
 				else:
 					classeInfo = json.loads(req.text)
 					classesInfo.append(classeInfo)
