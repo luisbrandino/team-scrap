@@ -84,7 +84,7 @@ print('Pegando assignments... (Isso pode demorar alguns minutos)\n')
 ts = TeamScrap(original_token)
 
 try:
-	classes_assignments = ts.get_all_classes_assingments()
+	classes_assignments = ts.get_all_classes_assignments()
 except Exception as err:
 	print(f'{Fore.RED}{err}{Style.RESET_ALL}\n')
 	print(f'{Fore.RED}Verifique se o token não expirou ou está correto{Style.RESET_ALL}\n')
@@ -117,4 +117,3 @@ for class_assignment in classes_assignments:
 
 print('\n')
 print(f'{Fore.GREEN}Total de assignments:{Style.RESET_ALL} {len(classes_assignments)}')
-print('\n')

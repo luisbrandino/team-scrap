@@ -36,7 +36,7 @@ class TeamScrap:
 			return classesInfo
 
 
-	def get_all_classes_assingments(self):
+	def get_all_classes_assignments(self):
 		class_assignments_endpoint = 'https://assignments.onenote.com/api/v1.0/edu/classes/{}/assignments'
 
 		classesInfo = self.get_classes()
