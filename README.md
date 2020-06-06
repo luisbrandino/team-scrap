@@ -15,8 +15,14 @@ Essas instruções farão com que você consiga rodar o projeto na sua máquina 
 
 Dentro da pasta do projeto, no cmd ou terminal, digite esse comando para instalar as dependências: 
 
+#### Windows
 ~~~python
 python -m pip install -r requirements.txt
+~~~
+
+#### Linux e Max
+~~~python3
+python3 -m pip install -r requirements.txt
 ~~~
 
 ### Executando
@@ -59,13 +65,13 @@ Para começar utilizar o programa, apenas cole esse código quando for pedido
 
 OBS.: Esse Token pode expirar depois de algum tempo e será necessário refazer esses passos, enquanto o Token for válido ele ficará salvo na sua máquina encriptado para uso
 
-### Construído com
+## Construído com
 
 - [Requests](https://requests.readthedocs.io/) - Feito para fazer as requisições nos endpoints necessários
 - [Coloroma](https://pypi.org/project/colorama/) - Cores e perfurmação no terminal
 - [datetime](https://docs.python.org/3/library/datetime.html) - Utilizado para formatar a data e calcular dias
 - [cryptography](https://cryptography.io/) - Utilizado para encriptar e decriptar o Token
 
-### Autores
+## Autores
 
 - Projeto criado por [Luis Brandino](https://github.com/luisbrandino)
