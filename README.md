@@ -20,7 +20,7 @@ Dentro da pasta do projeto, no cmd ou terminal, digite esse comando para instala
 python -m pip install -r requirements.txt
 ~~~
 
-#### Linux e Max
+#### Linux e Mac
 ~~~python3
 python3 -m pip install -r requirements.txt
 ~~~
