@@ -42,17 +42,17 @@ Para conseguir pegar esse Token, digite `?` quando o programa pedir para informa
 Caso prefira, aqui vai um tutorial com imagens:
 
 - Logue na sua conta do Microsoft Teams e vá para a página de equipes<br>
-[tutorial1](images/tutorial1.png)
+[Passo 1](images/tutorial1.png)
 
 - Após isso, aperte **F12** e vá para a aba **Network** na devtools<br>
-[tutorial2](images/tutorial2.png)
+[Passo 2](images/tutorial2.png)
 
 - Depois, vá para a aba **Tarefas** e espere aparecer um item chamado **classes** na devtools<br>
-[tutorial3](images/tutorial3.png)
+[Passo 3](images/tutorial3.png)
 
 - Clique nesse item, vá para a aba **Headers** e desça até encontrar o **Request Headers**, após isso visualize o header **authorization** e copie todas as letras e números após a palavra **Bearer**<br>
 (Lembre-se que é apenas para copiar o código do header authorization)<br>
-[tutorial4](images/tutorial4.png)
+[Passo 4](images/tutorial4.png)
 
 Após seguir esses passos, você possui o seu Token!<br>
 Para começar utilizar o programa, apenas cole esse código quando for pedido
