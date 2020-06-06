@@ -68,7 +68,7 @@ OBS.: Esse Token pode expirar depois de algum tempo e será necessário refazer 
 ## Construído com
 
 - [Requests](https://requests.readthedocs.io/) - Feito para fazer as requisições nos endpoints necessários
-- [Coloroma](https://pypi.org/project/colorama/) - Cores e perfurmação no terminal
+- [Coloroma](https://pypi.org/project/colorama/) - Cores e perfumação no terminal
 - [datetime](https://docs.python.org/3/library/datetime.html) - Utilizado para formatar a data e calcular dias
 - [cryptography](https://cryptography.io/) - Utilizado para encriptar e decriptar o Token
 
